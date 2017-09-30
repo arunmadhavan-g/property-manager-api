@@ -43,6 +43,7 @@ RUN \
   	mkdir property-manager-api &&\
   	cd property-manager-api &&\
   	wget --no-check-certificate https://github.com/arunmadhavan-g/property-manager-api/archive/master.tar.gz &&\
+  	pwd &&\
   	tar -xvf master.tar.gz &&\
   	rm -rf master.tar.gz &&\
   	cd property-manager-api-master &&\
@@ -53,7 +54,9 @@ RUN \
 
 WORKDIR /root/property-manager-api/property-manager-api-master
 
-CMD ./runner.sh
+RUN chmod +x /root/property-manager-api/property-manager-api-master/runner.sh
+
+CMD /root/property-manager-api/property-manager-api-master/runner.sh
 
 
 EXPOSE 4000
