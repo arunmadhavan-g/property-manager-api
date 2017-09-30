@@ -34,7 +34,7 @@ VOLUME ["/data"]
 
 WORKDIR /data
 
-RUN redis-server /etc/redis/redis.conf --daemonize yes
+RUN redis-server /etc/redis/redis.conf &
 
 RUN apt-get -y install inotify-tools
 
@@ -53,7 +53,7 @@ RUN \
 
 WORKDIR /root/property-manager-api/property-manager-api-master
 
-CMD mix phx.server
+CMD ./runner.sh
 
 
 EXPOSE 4000
